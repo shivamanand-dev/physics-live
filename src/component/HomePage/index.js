@@ -153,7 +153,7 @@ function HomePage() {
 
       <main className="lg:pl-72">
         <div className="xl:pr-96">
-          <div className="p-12">
+          <div className="p-6 lg:p-12">
             <h1 className="text-3xl font-semibold text-gray-900 pb-12">
               {class11[activeChapter].questions[activeQuestion].title}
             </h1>
