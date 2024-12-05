@@ -57,12 +57,12 @@ function HomePage() {
                 />
               </div>
               <nav className="flex flex-1 flex-col">
-                <ul role="list" className="flex flex-1 flex-col gap-y-7">
+                <ul className="flex flex-1 flex-col gap-y-7">
                   <li>
                     <div className="text-xs/6 font-semibold text-gray-400">
                       Class 11
                     </div>
-                    <ul role="list" className="-mx-2 space-y-1">
+                    <ul className="-mx-2 space-y-1">
                       {/* {class11.map(item => ({
                          <li key={item.name}>
                           <a
@@ -114,18 +114,21 @@ function HomePage() {
             />
           </div>
           <nav className="flex flex-1 flex-col">
-            <ul role="list" className="flex flex-1 flex-col gap-y-7">
+            <ul className="flex flex-1 flex-col gap-y-7">
               <li>
                 <div className="text-xs/6 font-semibold text-gray-400">
                   Class 11
                 </div>
-                <ul role="list" className="-mx-2 space-y-1">
+                <ul className="-mx-2 space-y-1">
                   {class11.map((item, index) => {
                     return (
                       <li key={item.name}>
                         <Dropdown
-                          title={`${item.name}`}
-                          questions={item.questions}
+                          title={`${item?.name}`}
+                          questions={item?.questions}
+                          setActiveChapter={setActiveChapter}
+                          setActiveQuestion={setActiveQuestion}
+                          index={index}
                         />
                       </li>
                     );
@@ -136,9 +139,7 @@ function HomePage() {
                 <div className="text-xs/6 font-semibold text-gray-400">
                   Class 12
                 </div>
-                <ul role="list" className="-mx-2 mt-2 space-y-1">
-                  {/* Class 12 */}
-                </ul>
+                <ul className="-mx-2 mt-2 space-y-1">{/* Class 12 */}</ul>
               </li>
             </ul>
           </nav>
@@ -171,8 +172,9 @@ function HomePage() {
             >
               <iframe
                 className="rounded-lg absolute top-0 left-0 bottom-0 right-0 w-full h-full"
-                src="https://www.youtube.com/embed/EL-iAQekfz0"
-                frameBorder="0"
+                src={`https://www.youtube.com/embed/${class11[activeChapter].questions[activeQuestion].ytLink}`}
+                title={class11[activeChapter].questions[activeQuestion].title}
+                border="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen={true}

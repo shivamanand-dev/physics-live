@@ -1,7 +1,7 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
-function Dropdown({ title = 'Chapter 1', questions = [] }) {
+function Dropdown({ title = 'Chapter 1', questions = [], setActiveChapter, setActiveQuestion, index }) {
   return (
     <Menu as="div" className="w-full relative inline-block text-left">
       <div>
@@ -20,14 +20,18 @@ function Dropdown({ title = 'Chapter 1', questions = [] }) {
       >
         <div className="py-1">
           {questions.map(e => {
+            console.log(e);
             return (
               <MenuItem key={e.questionNo}>
-                <a
-                  href="#"
+                <p
                   className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-[focus]:outline-none"
+                  onClick={() => {
+                    setActiveChapter(index);
+                    setActiveQuestion(e.questionNo);
+                  }}
                 >
                   {e.questionNo}
-                </a>
+                </p>
               </MenuItem>
             );
           })}
