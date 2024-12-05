@@ -63,30 +63,19 @@ function HomePage() {
                       Class 11
                     </div>
                     <ul className="-mx-2 space-y-1">
-                      {/* {class11.map(item => ({
-                         <li key={item.name}>
-                          <a
-                            href={item.href}
-                            className={classNames(
-                              item.current
-                                ? 'bg-gray-50 text-indigo-600'
-                                : 'text-gray-700 hover:bg-gray-50 hover:text-indigo-600',
-                              'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold'
-                            )}
-                          >
-                            <item.icon
-                              aria-hidden="true"
-                              className={classNames(
-                                item.current
-                                  ? 'text-indigo-600'
-                                  : 'text-gray-400 group-hover:text-indigo-600',
-                                'size-6 shrink-0'
-                              )}
-                            />
-                            {item.name}
-                          </a>
-                        </li> 
-                      }))} */}
+                    {class11.map((item, index) => {
+                    return (
+                      <li key={item.name}>
+                        <Dropdown
+                          title={`${item?.name}`}
+                          questions={item?.questions}
+                          setActiveChapter={setActiveChapter}
+                          setActiveQuestion={setActiveQuestion}
+                          index={index}
+                        />
+                      </li>
+                    );
+                  })}
                     </ul>
                   </li>
                   <li>
