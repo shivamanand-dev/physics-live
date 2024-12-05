@@ -72,6 +72,7 @@ function HomePage() {
                           setActiveChapter={setActiveChapter}
                           setActiveQuestion={setActiveQuestion}
                           index={index}
+                          setSidebarOpen={setSidebarOpen}
                         />
                       </li>
                     );
@@ -118,6 +119,7 @@ function HomePage() {
                           setActiveChapter={setActiveChapter}
                           setActiveQuestion={setActiveQuestion}
                           index={index}
+                          setSidebarOpen={setSidebarOpen}
                         />
                       </li>
                     );
